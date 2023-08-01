@@ -44,6 +44,25 @@
   justify-content: space-evenly
 }
 
+.listItem {
+  color: white;
+  list-style: none;
+}
+
+.searchHeader {
+  color:white;
+}
+
+.cardImage{
+  max-height: 50%;
+  max-width: 50%;
+}
+
+.mappedResults {
+  display: flex;
+  border: 3px white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

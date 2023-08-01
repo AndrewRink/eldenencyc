@@ -1,4 +1,5 @@
 import React, { useState} from "react";
+import {Card} from "react-bootstrap"
 
 const Bosses = ()  => {
     const[search, setSearch]=useState("");
@@ -32,20 +33,24 @@ const Bosses = ()  => {
         console.error ("Error fetching data", error)
     }
  }       
- console.log(boss.list) 
     return (
         <div>
             <h1 className="title">Bosses</h1> 
             <form>
-                <p>Search for Bosses by Name:</p>
-                <input type='text' value = {search} onChange={handleChange}/>
-                <ul>
+                <p className="searchHeader">Search for Bosses by Name:</p>
+                <input type='text' value = {search} onChange={handleChange}/>  
+            </form>
+                <ul className="mappedResults">
                     {boss.list.map((boss,index) => (
-                        <li key={index}>{boss.name}</li>
+                        <Card className="listItem" key={index}>
+                            <Card.Body>
+                                <Card.Title>{boss.name}</Card.Title>
+                                <Card.Img className="cardImage" src={boss.image} alt={boss.name}/>
+                                <Card.Text>Location: {boss.location}</Card.Text>
+                            </Card.Body>
+                        </Card>  
                     ))}
                 </ul>
-            </form>
-
         </div>
     )
 }
