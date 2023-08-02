@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import {useState} from "react";
+import {Card} from 'react-bootstrap'
 
 const AshesOfWar = () => {
     const [search, setSearch]=useState("")
@@ -41,9 +42,15 @@ const AshesOfWar = () => {
             <input type="text" value={search} onChange={handleChange}/>
             </form>
             <ul>
-                {ashes.list.map((ashes,index)=>(
-                <li className="listItem" key={index}>{ashes.name}</li>
-                ))}
+                {ashes.list.map((ashes,index)=>
+                <Card className="listItem" key={index}>
+                <Card.Body>
+                    <Card.Title>{ashes.name}</Card.Title>
+                    <Card.Img className="cardImage" src={ashes.image} alt={ashes.name}/>
+                    <Card.Text>Description: {ashes.description}</Card.Text>
+                </Card.Body>
+            </Card> 
+            )}
             </ul>
         </div>
     )

@@ -1,4 +1,5 @@
 import {useState} from "react"
+import { Card } from 'react-bootstrap'
 
 const Armors = () => {
     const [search, setSearch] = useState("")
@@ -41,7 +42,14 @@ const Armors = () => {
         </form>
         <ul>
             {armors.list.map((armors, index)=>
-            <li className="listItem" key={index}>{armors.name}</li>)}
+            <Card className="listItem" key={index}>
+            <Card.Body>
+                <Card.Title>{armors.name}</Card.Title>
+                <Card.Img className="cardImage" src={armors.image} alt={armors.name}/>
+                <Card.Text>Description: {armors.description}</Card.Text>
+            </Card.Body>
+        </Card> 
+        )}
         </ul>
     </div>
     )

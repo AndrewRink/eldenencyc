@@ -12,6 +12,10 @@ import Bosses from './Components/Bosses';
 import Creatures from './Components/Creatures';
 import Home from './Components/Home';
 import Incantations from './Components/Incantations';
+import Items from './Components/Items';
+import Locations from './Components/Locations';
+import NPCS from './Components/NPCS';
+import Shields from './Components/Shields';
 
 const containerStyle = {
   backgroundImage: `url(${"../public/images/Elden\ Ring\ Background.jpg"})`,
@@ -39,6 +43,10 @@ function App() {
                 <Link to='/classes'>Classes</Link>
                 <Link to='/creatures'>Creatures</Link>
                 <Link to='/incantations'>Incantations</Link>
+                <Link to='/items'>Items</Link>
+                <Link to='/locations'>Locations</Link>
+                <Link to='/npcs'>NPCs</Link>
+                <Link to='/shields'>Shields</Link>
             </Nav>
           </Navbar>
           </Container>
@@ -53,6 +61,10 @@ function App() {
               <Route path='/ashesofwar' element={<AshesOfWar />} />
               <Route path='/creatures' element={<Creatures/>}/>
               <Route path='/incantations' element={<Incantations/>} />
+              <Route path='/items' element={<Items/>} />
+              <Route path='/locations' element={<Locations />} />
+              <Route path='/npcs' element={<NPCS />} />
+              <Route path='/shields' element={<Shields />} />
             </Routes>
           </div>
         </Router>

@@ -46,7 +46,7 @@ const Incantations = () => {
                 <Card.Body>
                     <Card.Title>{incantation.name}</Card.Title>
                     <Card.Img className="cardImage" src={incantation.image} alt={incantation.name}/>
-                    <Card.Text>Location: {incantation.location}</Card.Text>
+                    <Card.Text>Description: {incantation.description}</Card.Text>
                 </Card.Body>
             </Card>
                 )}

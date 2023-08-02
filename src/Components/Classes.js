@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Card } from "react-bootstrap"
 
 
 const Classes = () => {
@@ -43,7 +44,14 @@ const Classes = () => {
             </form>
             <ul>
                 {charClass.list.map((charClass,index)=>
-                <li className="listItem" key={index}>{charClass.name}</li>)}
+                <Card className="listItem" key={index}>
+                <Card.Body>
+                    <Card.Title>{charClass.name}</Card.Title>
+                    <Card.Img className="cardImage" src={charClass.image} alt={charClass.name}/>
+                    <Card.Text>Description: {charClass.description}</Card.Text>
+                </Card.Body>
+            </Card> 
+            )}
             </ul>
         </div>
     )
