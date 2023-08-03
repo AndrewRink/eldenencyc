@@ -40,7 +40,7 @@ const Ammos = () => {
             <h1 className="title">Ammos</h1>
             <p className="searchHeader">Search for Ammo</p>
             <form>
-                <input type="text" input={search} onChange={handleChange}/>
+                <input type="text" value={search} onChange={handleChange}/>
             </form>
             <ul>
                 {ammo.list.map((ammo, index) =>

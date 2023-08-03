@@ -37,16 +37,16 @@ const Creatures = () => {
             <h1 className="title">Creatures</h1>
             <p className="searchHeader"> Search for Creature</p>
             <form>
-                <input type="text" input={search} onChange={handleChange}/>
+                <input type="text" value={search} onChange={handleChange}/>
                 <ul>
                     {creature.list.map((creature,index) =>
                     <Card className="listItem" key={index}>
-                    <Card.Body>
-                        <Card.Title>{creature.name}</Card.Title>
-                        <Card.Img className="cardImage" src={creature.image} alt={creature.name}/>
-                        <Card.Text>Location: {creature.location}</Card.Text>
-                    </Card.Body>
-                </Card> 
+                        <Card.Body>
+                            <Card.Title>{creature.name}</Card.Title>
+                            <Card.Img className="cardImage" src={creature.image} alt={creature.name}/>
+                            <Card.Text>Location: {creature.location}</Card.Text>
+                        </Card.Body>
+                    </Card> 
                     )}
                 </ul>
             </form>

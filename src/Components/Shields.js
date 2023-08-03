@@ -38,7 +38,7 @@ const Shields = () => {
             <h1 className='title'>Shields</h1>
             <p className='searchHeader'>Search for a Shield</p>
             <form>
-                <input type="text" input={search} onChange={handleChange}/>
+                <input type="text" value={search} onChange={handleChange}/>
             </form>
             <ul>
                 {shield.list.map((shield, index) =>
