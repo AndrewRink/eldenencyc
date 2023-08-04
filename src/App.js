@@ -26,8 +26,8 @@ const containerStyle = {
   backgroundSize: '20%',
   backgroundPosition: 'center',
   backgroundRepeat: 'repeat',
-  height: 'auto',
-  width: 'auto',
+  height: '100vh',
+  width: '100vw',
 }
 
 

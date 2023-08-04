@@ -40,7 +40,7 @@ const Incantations = () => {
             <form>
                 <input  type='text'value={search} onChange={handleChange}/>
             </form>
-            <ul>
+            <ul className="mappedResults">
                 {incantation.list.map((incantation, index) => 
                 <Card className="listItem" key={index}>
                 <Card.Body>

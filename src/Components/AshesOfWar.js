@@ -41,7 +41,7 @@ const AshesOfWar = () => {
             <p className="searchHeader">Search for Ashes of War</p>
             <input type="text" value={search} onChange={handleChange}/>
             </form>
-            <ul>
+            <ul className="mappedResults">
                 {ashes.list.map((ashes,index)=>
                 <Card className="listItem" key={index}>
                 <Card.Body>

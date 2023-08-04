@@ -41,7 +41,7 @@ const Spirits = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange}/>
             </form>
-            <ul>
+            <ul className="mappedResults">
                 {spirit.list.map((spirit, index)=>
                 <Card className="listItem" key={index}>
                     <Card.Body>

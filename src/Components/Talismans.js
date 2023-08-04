@@ -41,7 +41,7 @@ const Talismans = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange} />
             </form>
-            <ul>
+            <ul className="mappedResults">
                 {talisman.list.map((talisman, index) =>
                 <Card className="listItem" key={index}>
                     <Card.Body>

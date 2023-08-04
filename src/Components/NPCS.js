@@ -41,7 +41,7 @@ const NPCS = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange} />
             </form>
-            <ul>
+            <ul className="mappedResults">
                 {npc.list.map((npc, index)=>
                 <Card className="listItem" key={index}>
                     <Card.Body>

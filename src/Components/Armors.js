@@ -40,7 +40,7 @@ const Armors = () => {
         <form>
             <input type="text" value={search} onChange={handleChange}/>
         </form>
-        <ul>
+        <ul className="mappedResults">
             {armors.list.map((armors, index)=>
             <Card className="listItem" key={index}>
             <Card.Body>

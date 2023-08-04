@@ -41,7 +41,7 @@ const Sorceries = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange} />
             </form>
-            <ul>
+            <ul className="mappedResults">
                 {sorcery.list.map((sorcery, index) =>
                 <Card className="listItem" key={index}>
                     <Card.Body>

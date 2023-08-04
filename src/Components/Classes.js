@@ -42,7 +42,7 @@ const Classes = () => {
                 <p className="searchHeader">Search for Classes</p>
                 <input type="text" value={search} onChange={handleChange}/>
             </form>
-            <ul>
+            <ul className="mappedResults">
                 {charClass.list.map((charClass,index)=>
                 <Card className="listItem" key={index}>
                 <Card.Body>

@@ -38,7 +38,7 @@ const Creatures = () => {
             <p className="searchHeader"> Search for Creature</p>
             <form>
                 <input type="text" value={search} onChange={handleChange}/>
-                <ul>
+                <ul className="mappedResults">
                     {creature.list.map((creature,index) =>
                     <Card className="listItem" key={index}>
                         <Card.Body>
