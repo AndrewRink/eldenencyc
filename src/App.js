@@ -25,9 +25,9 @@ const containerStyle = {
   backgroundImage: `url(${"../public/images/Elden\ Ring\ Background.jpg"})`,
   backgroundSize: '20%',
   backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  height: '100vh',
-  width: '100vw',
+  backgroundRepeat: 'repeat',
+  height: 'auto',
+  width: 'auto',
 }
 
 
