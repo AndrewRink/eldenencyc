@@ -42,9 +42,9 @@ const Creatures = () => {
                     {creature.list.map((creature,index) =>
                     <Card className="listItem" key={index}>
                         <Card.Body>
-                            <Card.Title>{creature.name}</Card.Title>
+                            <Card.Title className="cardTitle">{creature.name}</Card.Title>
                             <Card.Img className="cardImage" src={creature.image} alt={creature.name}/>
-                            <Card.Text>Location: {creature.location}</Card.Text>
+                            <Card.Text className="itemInfo">Location: {creature.location}</Card.Text>
                         </Card.Body>
                     </Card> 
                     )}

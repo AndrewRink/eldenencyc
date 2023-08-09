@@ -44,9 +44,9 @@ const Armors = () => {
             {armors.list.map((armors, index)=>
             <Card className="listItem" key={index}>
             <Card.Body>
-                <Card.Title>{armors.name}</Card.Title>
+                <Card.Title className="cardTitle">{armors.name}</Card.Title>
                 <Card.Img className="cardImage" src={armors.image} alt={armors.name}/>
-                <Card.Text>Description: {armors.description}</Card.Text>
+                <Card.Text className="itemInfo">Description: {armors.description}</Card.Text>
             </Card.Body>
         </Card> 
         )}

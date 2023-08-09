@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url("../public/images/Elden\ Ring\ Background.jpg")
+  background-image: url("../public/images/EldenRingBackground.jpg")
 }
 
 .App-logo {
@@ -41,7 +41,22 @@
 
 .Nav {
   display: flex;
-  justify-content: space-evenly
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 8pt;
+}
+
+a:link {
+  color:white;
+}
+
+a:visited {
+  color:gold;
+}
+
+#dadSouls {
+  max-width: 50vw;
+  max-height: 50vh;
 }
 
 .listItem {
@@ -53,9 +68,17 @@
   color:white;
 }
 
+.cardTitle {
+  font-size: 1.5vw;
+}
+
 .cardImage{
   max-height: 50%;
   max-width: 50%;
+}
+
+.itemInfo {
+  font-size: 1vw;
 }
 
 .mappedResults {

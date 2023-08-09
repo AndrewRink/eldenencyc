@@ -44,9 +44,9 @@ const Incantations = () => {
                 {incantation.list.map((incantation, index) => 
                 <Card className="listItem" key={index}>
                 <Card.Body>
-                    <Card.Title>{incantation.name}</Card.Title>
+                    <Card.Title className="cardTitle">{incantation.name}</Card.Title>
                     <Card.Img className="cardImage" src={incantation.image} alt={incantation.name}/>
-                    <Card.Text>Description: {incantation.description}</Card.Text>
+                    <Card.Text className="itemInfo">Description: {incantation.description}</Card.Text>
                 </Card.Body>
             </Card>
                 )}

@@ -46,9 +46,9 @@ const Ammos = () => {
                 {ammo.list.map((ammo, index) =>
                 <Card className="listItem" key={index}>
                 <Card.Body>
-                    <Card.Title>{ammo.name}</Card.Title>
+                    <Card.Title className="cardTitle">{ammo.name}</Card.Title>
                     <Card.Img className="cardImage" src={ammo.image} alt={ammo.name}/>
-                    <Card.Text>Description: {ammo.description}</Card.Text>
+                    <Card.Text className="itemInfo">Description: {ammo.description}</Card.Text>
                 </Card.Body>
             </Card>
                 )} 

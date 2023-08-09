@@ -45,9 +45,9 @@ const Sorceries = () => {
                 {sorcery.list.map((sorcery, index) =>
                 <Card className="listItem" key={index}>
                     <Card.Body>
-                        <Card.Title>{sorcery.name}</Card.Title>
+                        <Card.Title className="cardTitle">{sorcery.name}</Card.Title>
                         <Card.Img className="cardImage" src={sorcery.image} alt={sorcery.name}/>
-                        <Card.Text>Description: {sorcery.description}</Card.Text>
+                        <Card.Text className="itemInfo">Description: {sorcery.description}</Card.Text>
                     </Card.Body>
                 </Card>
                 )}

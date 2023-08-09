@@ -44,9 +44,9 @@ const Shields = () => {
                 {shield.list.map((shield, index) =>
                 <Card className="listItem" key={index}>
                     <Card.Body>
-                        <Card.Title>{shield.name}</Card.Title>
+                        <Card.Title className="cardTitle">{shield.name}</Card.Title>
                         <Card.Img className="cardImage" src={shield.image} alt={shield.name}/>
-                        <Card.Text>Description: {shield.description}</Card.Text>
+                        <Card.Text className="itemInfo">Description: {shield.description}</Card.Text>
                     </Card.Body>
                 </Card> 
                 )}      

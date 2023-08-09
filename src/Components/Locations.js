@@ -44,9 +44,9 @@ const Locations = () => {
                 {location.list.map((location,index)=> 
                     <Card className="listItem" key={index}>
                     <Card.Body>
-                        <Card.Title>{location.name}</Card.Title>
+                        <Card.Title className="cardTitle">{location.name}</Card.Title>
                         <Card.Img className="cardImage" src={location.image} alt={location.name}/>
-                        <Card.Text>Description: {location.description}</Card.Text>
+                        <Card.Text className="itemInfo">Description: {location.description}</Card.Text>
                     </Card.Body>
                  </Card>
                 )}

@@ -45,9 +45,9 @@ const AshesOfWar = () => {
                 {ashes.list.map((ashes,index)=>
                 <Card className="listItem" key={index}>
                 <Card.Body>
-                    <Card.Title>{ashes.name}</Card.Title>
+                    <Card.Title className="cardTitle">{ashes.name}</Card.Title>
                     <Card.Img className="cardImage" src={ashes.image} alt={ashes.name}/>
-                    <Card.Text>Description: {ashes.description}</Card.Text>
+                    <Card.Text className="itemInfo">Description: {ashes.description}</Card.Text>
                 </Card.Body>
             </Card> 
             )}

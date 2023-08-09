@@ -44,9 +44,9 @@ const Bosses = ()  => {
                     {boss.list.map((boss,index) => (
                         <Card className="listItem" key={index}>
                             <Card.Body>
-                                <Card.Title>{boss.name}</Card.Title>
+                                <Card.Title className="cardTitle">{boss.name}</Card.Title>
                                 <Card.Img className="cardImage" src={boss.image} alt={boss.name}/>
-                                <Card.Text>Location: {boss.location}</Card.Text>
+                                <Card.Text className="itemInfo">Location: {boss.location}</Card.Text>
                             </Card.Body>
                         </Card>  
                     ))}

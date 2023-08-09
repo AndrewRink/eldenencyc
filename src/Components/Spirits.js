@@ -45,9 +45,9 @@ const Spirits = () => {
                 {spirit.list.map((spirit, index)=>
                 <Card className="listItem" key={index}>
                     <Card.Body>
-                        <Card.Title>{spirit.name}</Card.Title>
+                        <Card.Title className="cardTitle">{spirit.name}</Card.Title>
                         <Card.Img className="cardImage" src={spirit.image} alt={spirit.name}/>
-                        <Card.Text>Description: {spirit.description}</Card.Text>
+                        <Card.Text className="itemInfo">Description: {spirit.description}</Card.Text>
                     </Card.Body>
                 </Card>
                 )}

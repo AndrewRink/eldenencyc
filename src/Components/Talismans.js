@@ -45,9 +45,9 @@ const Talismans = () => {
                 {talisman.list.map((talisman, index) =>
                 <Card className="listItem" key={index}>
                     <Card.Body>
-                        <Card.Title>{talisman.name}</Card.Title>
+                        <Card.Title className="cardTitle">{talisman.name}</Card.Title>
                         <Card.Img className="cardImage" src={talisman.image} alt={talisman.name}/>
-                        <Card.Text>Description: {talisman.description}</Card.Text>
+                        <Card.Text className="itemInfo">Description: {talisman.description}</Card.Text>
                     </Card.Body>
                 </Card>
                 )}

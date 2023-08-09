@@ -45,9 +45,9 @@ const NPCS = () => {
                 {npc.list.map((npc, index)=>
                 <Card className="listItem" key={index}>
                     <Card.Body>
-                        <Card.Title>{npc.name}</Card.Title>
+                        <Card.Title className="cardTitle">{npc.name}</Card.Title>
                         <Card.Img className="cardImage" src={npc.image} alt={npc.name}/>
-                        <Card.Text>Location: {npc.location}</Card.Text>
+                        <Card.Text className="itemInfo">Location: {npc.location}</Card.Text>
                     </Card.Body>
                 </Card>
                 )}
