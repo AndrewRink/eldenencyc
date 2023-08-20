@@ -1,28 +1,13 @@
-import { BrowserRouter as Router, Routes, Link, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, NavLink, Route } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import './App.css';
-//Components
-import Armors from './Components/Armors';
-import Ammos from './Components/Ammos';
-import AshesOfWar from './Components/AshesOfWar';
-import Classes from './Components/Classes';
-import Bosses from './Components/Bosses';
-import Creatures from './Components/Creatures';
-import Home from './Components/Home';
-import Incantations from './Components/Incantations';
-import Items from './Components/Items';
-import Locations from './Components/Locations';
-import NPCS from './Components/NPCS';
-import Shields from './Components/Shields';
-import Sorceries from './Components/Sorceries';
-import Spirits from './Components/Spirits';
-import Talismans from './Components/Talismans';
-import Weapons from './Components/Weapons';
+import { Container } from 'react-bootstrap'
+import './App.css'
+import Home from './Components/Home'
+import { EldenRingCategorySearch } from './Components/EldenRingCategorySearch'
 
 const containerStyle = {
-  backgroundImage: `url(${"../public/images/Elden\ Ring\ Background.jpg"})`,
+  backgroundImage: `url(${'../public/images/Elden Ring Background.jpg'})`,
   backgroundSize: '20%',
   backgroundPosition: 'center',
   backgroundRepeat: 'repeat',
@@ -30,59 +15,68 @@ const containerStyle = {
   width: '100vw',
 }
 
+const navItemStyle = {
+  textDecoration: 'underline',
+  color: '#fff',
+  padding: '10px',
+  fontSize: '0.8rem',
+}
+
+// additional categories or pages here
+const categories = [
+  { route: '', CustomComponent: Home, label: 'Home' },
+  { route: 'ammos', label: 'Ammos' },
+  { route: 'armors', label: 'Armors' },
+  { route: 'ashes', label: 'Ashes of War' },
+  { route: 'bosses', label: 'Bosses' },
+  { route: 'classes', label: 'Classes' },
+  { route: 'creatures', label: 'Creatures' },
+  { route: 'incantations', label: 'Incantations' },
+  { route: 'items', label: 'Items' },
+  { route: 'locations', label: 'Locations' },
+  { route: 'npcs', label: 'NPCs' },
+  { route: 'shields', label: 'Shields' },
+  { route: 'sorceries', label: 'Sorceries' },
+  { route: 'spirits', label: 'Spirits' },
+  { route: 'talismans', label: 'Talismans' },
+  { route: 'weapons', label: 'Weapons' },
+]
 
 function App() {
   return (
     <div className="App">
-      <div>
       <Router>
+        {/* Nav bar */}
         <Container>
           <Navbar bg="light" expand="lg">
-            <Nav className='Nav' defaultActiveKey='/'>
-                <Link to='/'>Home</Link>
-                <Link to='/ammos'>Ammos</Link>
-                <Link to='/armors'>Armors</Link>
-                <Link to='/ashesofwar'>Ashes of War</Link>
-                <Link to='/bosses'>Bosses</Link>
-                <Link to='/classes'>Classes</Link>
-                <Link to='/creatures'>Creatures</Link>
-                <Link to='/incantations'>Incantations</Link>
-                <Link to='/items'>Items</Link>
-                <Link to='/locations'>Locations</Link>
-                <Link to='/npcs'>NPCs</Link>
-                <Link to='/shields'>Shields</Link>
-                <Link to='/sorceries'>Sorceries</Link>
-                <Link to='/spirits'>Spirits</Link>
-                <Link to='/talismans'>Talismans</Link>
-                <Link to='/weapons'>Weapons</Link>
+            <Nav className="Nav" defaultActiveKey="/">
+              {categories.map(({ route, label }) => (
+                <NavLink key={route} to={`/${route}`} style={navItemStyle}>
+                  {label}
+                </NavLink>
+              ))}
             </Nav>
           </Navbar>
-          </Container>
-          <div className='display'
-          style={containerStyle}>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/armors' element={<Armors />} />
-              <Route path='/ammos' element={<Ammos />} />
-              <Route path='/classes' element={<Classes />} />
-              <Route path='/bosses' element={<Bosses />} />
-              <Route path='/ashesofwar' element={<AshesOfWar />} />
-              <Route path='/creatures' element={<Creatures/>}/>
-              <Route path='/incantations' element={<Incantations/>} />
-              <Route path='/items' element={<Items/>} />
-              <Route path='/locations' element={<Locations />} />
-              <Route path='/npcs' element={<NPCS />} />
-              <Route path='/shields' element={<Shields />} />
-              <Route path='/sorceries' element={<Sorceries />} />
-              <Route path='/spirits' element={<Spirits />} />
-              <Route path='/talismans' element={<Talismans />} />
-              <Route path='/weapons' element={<Weapons />} />
-            </Routes>
-          </div>
-        </Router>
+        </Container>
+
+        {/* Main content */}
+        <div className="display" style={containerStyle}>
+          <Routes>
+            {categories.map(({ route, label, CustomComponent }) => (
+              <Route
+                key={route}
+                path={`/${route}`}
+                element={
+                  // if the category has a custom component, use it (just home right now), else use EldenRingCategorySearch
+                  CustomComponent ? <CustomComponent /> : <EldenRingCategorySearch route={route} label={label} />
+                }
+              />
+            ))}
+          </Routes>
         </div>
+      </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
