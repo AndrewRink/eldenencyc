@@ -7,12 +7,14 @@ const Talismans = () => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
         const talismanSearch = e.target.value
         setSearch(talismanSearch)
 
         try {
+            setLoading(true);
             if (talismanSearch.trim()==="") {
                 setTalismans({search: "", list: []})
                 return
@@ -31,6 +33,8 @@ const Talismans = () => {
             }
         } catch (error) {
             console.error("Error Fetching Data", error)
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -41,6 +45,7 @@ const Talismans = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange} />
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {talisman.list.map((talisman, index) =>
                 <Card className="listItem" key={index}>

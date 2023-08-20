@@ -7,12 +7,14 @@ const Shields = () => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
     const shieldSearch = e.target.value
     setSearch(shieldSearch)
 
     try {
+        setLoading(true);
         if(shieldSearch.trim()==="") {
             setShields({ search: "", list: []})
             return
@@ -31,6 +33,8 @@ const Shields = () => {
         }
     } catch (error) {
         console.error("Error Fetching Data", error)
+    } finally {
+        setLoading(false);
     }
 }
     return (
@@ -40,6 +44,7 @@ const Shields = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange}/>
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {shield.list.map((shield, index) =>
                 <Card className="listItem" key={index}>

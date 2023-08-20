@@ -7,12 +7,14 @@ const Spirits = () => {
         search: "",
         list:  []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async(e) => {
         const spiritSearch = e.target.value
         setSearch(spiritSearch)
 
         try{
+            setLoading(true);
             if (spiritSearch.trim()==="") {
                 setSpirits({ search: "", list: []})
                 return
@@ -31,6 +33,8 @@ const Spirits = () => {
             }
         } catch (error) {
             console.error('Error Fetching Data', error)
+        } finally {
+            setLoading(false);
         }
     } 
 
@@ -41,6 +45,7 @@ const Spirits = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange}/>
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {spirit.list.map((spirit, index)=>
                 <Card className="listItem" key={index}>

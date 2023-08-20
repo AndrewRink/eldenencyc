@@ -7,12 +7,14 @@ const AshesOfWar = () => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
         const ashSearch = e.target.value;
         setSearch(ashSearch);
 
     try {
+        setLoading(true);
         if(ashSearch.trim() === "") {
             setAshes({ search: ashSearch, list: []})
             return
@@ -31,6 +33,8 @@ const AshesOfWar = () => {
         }
     } catch (error) {
         console.error("Error Fetching Data", error)
+    } finally {
+        setLoading(false);
     }
     }
 
@@ -41,6 +45,7 @@ const AshesOfWar = () => {
             <p className="searchHeader">Search for Ashes of War</p>
             <input type="text" value={search} onChange={handleChange}/>
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {ashes.list.map((ashes,index)=>
                 <Card className="listItem" key={index}>

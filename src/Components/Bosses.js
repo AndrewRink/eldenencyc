@@ -7,12 +7,14 @@ const Bosses = ()  => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
         const searchQuery = e.target.value;
         setSearch(searchQuery);
 
     try {
+        setLoading(true);
         if (searchQuery.trim() === "") {
             setBosses ({ search: searchQuery, list: []})
             return
@@ -31,6 +33,8 @@ const Bosses = ()  => {
         }
     } catch (error) {
         console.error ("Error fetching data", error)
+    } finally {
+        setLoading(false);
     }
  }       
     return (
@@ -40,6 +44,7 @@ const Bosses = ()  => {
                 <p className="searchHeader">Search for Bosses by Name:</p>
                 <input type='text' value = {search} onChange={handleChange}/>  
             </form>
+            {loading === true && <p>Info Loading!</p>}
                 <ul className="mappedResults">
                     {boss.list.map((boss,index) => (
                         <Card className="listItem" key={index}>

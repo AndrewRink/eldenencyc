@@ -7,12 +7,14 @@ const NPCS = () => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
         const npcSearch = e.target.value
         setSearch(npcSearch)
 
     try {
+        setLoading(true);
         if (npcSearch.trim()==="") {
             setNPC({search: "", list: []})
         return
@@ -31,6 +33,8 @@ const NPCS = () => {
         }
     } catch (error) {
         console.error("Error Fetching Data", error)
+    } finally {
+        setLoading(false);
     }
     }
 
@@ -41,6 +45,7 @@ const NPCS = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange} />
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {npc.list.map((npc, index)=>
                 <Card className="listItem" key={index}>

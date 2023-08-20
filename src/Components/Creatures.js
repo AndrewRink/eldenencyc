@@ -7,12 +7,14 @@ const Creatures = () => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
         const creatureSearch = e.target.value;
         setSearch(creatureSearch);
 
     try {
+        setLoading(true);
         if (creatureSearch.trim()==="") {
             setCreature({ search: "", list: []})
             return
@@ -29,6 +31,8 @@ const Creatures = () => {
         }
     } catch (error) {
         console.error ("Error Fetching Data", error)
+    } finally {
+        setLoading(false);
     }
     }
 
@@ -38,6 +42,8 @@ const Creatures = () => {
             <p className="searchHeader"> Search for Creature</p>
             <form>
                 <input type="text" value={search} onChange={handleChange}/>
+            </form>
+            {loading === true && <p>Info Loading!</p>}
                 <ul className="mappedResults">
                     {creature.list.map((creature,index) =>
                     <Card className="listItem" key={index}>
@@ -49,7 +55,7 @@ const Creatures = () => {
                     </Card> 
                     )}
                 </ul>
-            </form>
+            
         </div>
     )
 }

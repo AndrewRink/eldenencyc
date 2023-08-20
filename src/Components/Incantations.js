@@ -7,12 +7,14 @@ const Incantations = () => {
         search: "",
         list: []
     });
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async(e) => {
         const searchIncantation = e.target.value
         setSearch(searchIncantation)
 
     try {
+        setLoading(true);
         if (searchIncantation.trim()==="") {
             setIncantation({ search: "", list: []})
             return
@@ -31,6 +33,8 @@ const Incantations = () => {
         }
     } catch (error) {
         console.error("Error Fetching Data", error)
+    } finally {
+        setLoading(false);
     }
     }
     return (
@@ -40,6 +44,7 @@ const Incantations = () => {
             <form>
                 <input  type='text'value={search} onChange={handleChange}/>
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {incantation.list.map((incantation, index) => 
                 <Card className="listItem" key={index}>

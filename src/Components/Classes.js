@@ -8,12 +8,14 @@ const Classes = () => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
         const classSearch = e.target.value;
         setSearch(classSearch);
 
     try {
+        setLoading(true);
         if (classSearch.trim() === ""){
             setClasses({search: classSearch, list: []})
             return
@@ -32,6 +34,8 @@ const Classes = () => {
         }
     } catch (error) {
         console.error ("Error fetching data", error)
+    } finally {
+        setLoading(false);
     }
 }
 
@@ -42,6 +46,7 @@ const Classes = () => {
                 <p className="searchHeader">Search for Classes</p>
                 <input type="text" value={search} onChange={handleChange}/>
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {charClass.list.map((charClass,index)=>
                 <Card className="listItem" key={index}>

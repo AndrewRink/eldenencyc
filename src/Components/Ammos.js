@@ -7,6 +7,7 @@ const Ammos = () => {
         search: "",
         list: []
     })
+    const [loading, setLoading] = useState(false);
 
     const handleChange = async (e) => {
         const ammoSearch = e.target.value
@@ -14,6 +15,7 @@ const Ammos = () => {
     
 
     try {
+        setLoading(true);
         if (ammoSearch.trim()==="") {
             setAmmo({search: ammoSearch, list: []})
             return
@@ -32,6 +34,8 @@ const Ammos = () => {
         }
     } catch (error) {
         console.error("Error Fetching Data", error)
+    } finally {
+        setLoading(false);
     }
     }
 
@@ -42,6 +46,7 @@ const Ammos = () => {
             <form>
                 <input type="text" value={search} onChange={handleChange}/>
             </form>
+            {loading === true && <p>Info Loading!</p>}
             <ul className="mappedResults">
                 {ammo.list.map((ammo, index) =>
                 <Card className="listItem" key={index}>
